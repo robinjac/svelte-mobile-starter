@@ -1,22 +1,22 @@
 <script lang="ts">
-	import { Plugins } from '@capacitor/core';
-  
-	let loc;
-	async function getCurrentPosition(){
-	  const { Geolocation } = Plugins;
-	  const res = await Geolocation.getCurrentPosition()
-	  loc = res
+	import type { GeolocationPosition } from '@capacitor/core'; 
+	import { Geolocation } from '@capacitor/core';
+	
+	let loc: GeolocationPosition;
+	
+	async function getCurrentPosition(): Promise<void> {
+		loc = await Geolocation.getCurrentPosition();
 	}
 
-  </script>
+</script>
   
-  <div>
+<div>
 	<h1>Geolocation</h1>
 	<p>Your location is:</p>
-	<p>Latitude: {loc?.coords.latitude}</p>
-	<p>Longitude: {loc?.coords.longitude}</p>
-  
+	<p>Latitude: {loc?.coords.latitude ?? ""}</p>
+	<p>Longitude: {loc?.coords.longitude ?? ""}</p>
+
 	<button on:click={getCurrentPosition}>
-	  Get Current Location
+		Get Current Location
 	</button>
-  </div>
+</div>
