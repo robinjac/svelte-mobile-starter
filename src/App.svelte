@@ -20,3 +20,20 @@
 		Get Current Location
 	</button>
 </div>
+
+<style type="text/scss">
+	$borderColor: red;
+
+	button {
+		border: 1px solid $borderColor;
+		border-radius: 5px;
+		background-color: purple;
+		color: white;
+		cursor: pointer;
+
+		&:active {
+			background-color: rgb(190, 0, 190);
+		}
+	}
+
+</style>
